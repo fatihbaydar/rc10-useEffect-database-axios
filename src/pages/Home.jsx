@@ -25,10 +25,24 @@ const Home = () => {
         getBilgiler()
     }
 
+    //! POST - VERİ GÖNDERME
+
+    const postBilgiler = async(yeniVeri) => {
+        await axios.post(url, yeniVeri)
+        getBilgiler()
+    }
+
+    //PUT - UPDATE
+
+    const putBilgi = async(editItem) => {
+        await axios.put(`${url}${editItem.id}/`, editItem)
+        getBilgiler()
+    }
+
   return (
     <div>
-        <AddBilgi/>
-        <BilgiList deleteBilgi={deleteBilgi} tutorials={tutorials}/>
+        <AddBilgi postBilgiler={postBilgiler}/>
+        <BilgiList deleteBilgi={deleteBilgi} tutorials={tutorials} putBilgi={putBilgi}/>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from "react";
-const EditBilgi = () => {
+const EditBilgi = ({editItem,setEditItem,putBilgi}) => {
 
 
   return (
@@ -33,6 +33,8 @@ const EditBilgi = () => {
                 className="form-control"
                 id="title"
                 placeholder="Enter your title"
+                value={editItem.title}
+                onChange={(e) => setEditItem({...editItem,title: e.target.value})}
 
               />
             </div>
@@ -45,6 +47,8 @@ const EditBilgi = () => {
                 className="form-control"
                 id="desc"
                 placeholder="Enter your Description"
+                value={editItem.description}
+                onChange={(e) => setEditItem({...editItem,description: e.target.value})}
 
               />
             </div>
@@ -54,6 +58,7 @@ const EditBilgi = () => {
               type="button"
               className="btn btn-secondary"
               data-bs-dismiss="modal"
+              onClick={() => putBilgi(editItem)}
 
             >
               Save
