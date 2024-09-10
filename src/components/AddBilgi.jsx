@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 const AddBilgi = () => {
 
+    const[baslik, setBaslik] = useState("")
+    const[desc,setDesc] = useState("")
 
 
     return (
